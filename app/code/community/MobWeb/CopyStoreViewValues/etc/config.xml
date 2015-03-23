@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <MobWeb_CopyStoreViewValues>
+            <version>0.1.0</version>
+        </MobWeb_CopyStoreViewValues>
+    </modules>
+    <global>
+        <models>
+            <copystoreviewvalues>
+                <class>MobWeb_CopyStoreViewValues_Model</class>
+            </copystoreviewvalues>
+        </models>
+        <helpers>
+            <copystoreviewvalues>
+                <class>MobWeb_CopyStoreViewValues_Helper</class>
+            </copystoreviewvalues>
+        </helpers>
+    </global>
+    <adminhtml>
+        <events>
+            <catalog_product_save_before>
+                <observers>
+                    <copystoreviewvalues>
+                        <type>singleton</type>
+                        <class>copystoreviewvalues/observer</class>
+                        <method>catalogProductSaveBefore</method>
+                    </copystoreviewvalues>
+                </observers>
+            </catalog_product_save_before>
+        </events>
+    </adminhtml>
+</config>

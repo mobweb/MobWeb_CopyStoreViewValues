@@ -1,0 +1,6 @@
+app/code/community/MobWeb/CopyStoreViewValues app/code/community/MobWeb/CopyStoreViewValues/
+
+app/etc/modules/MobWeb_CopyStoreViewValues.xml app/etc/modules/MobWeb_CopyStoreViewValues.xml
+
+# Clear the cache
+@shell   rm -rf $PROJECT/var/cache/* && echo "Magento Cache cleared"
