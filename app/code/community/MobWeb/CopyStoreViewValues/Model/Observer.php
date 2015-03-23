@@ -40,6 +40,13 @@ class MobWeb_CopyStoreViewValues_Model_Observer
 						continue;
 					}
 
+					// Also check if the new attribute value is different than what is currently saved in the database.
+					// If not, don't update any attributes
+					$sourceAttributeValueOld = Mage::getResourceModel('catalog/product')->getAttributeRawValue($productId, $sourceAttributeCode, $productStoreViewId);
+					if($sourceAttributeValueOld === $sourceAttributeValue) {
+						continue;
+					}
+
 					// Update the product's attribute value in the target store view
 					Mage::getSingleton('catalog/product_action')->updateAttributes(
 						array($productId),
